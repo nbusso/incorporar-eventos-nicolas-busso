@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- boostrap -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script type="text/javascript" src="index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-md  mx-auto my-3">
+        <form id="formulario" action="tomarDatos();">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon4">Fecha Factura</span>
+                <input type="text" class="form-control" placeholder="DD/MM/AAAA" aria-label="fecha-factura" aria-describedby="basic-addon4" id="fechaFactura">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Proveedor</span>
+                <input type="text" class="form-control" placeholder="Proveedor" aria-label="Proveedor" aria-describedby="basic-addon1" id="proveedor">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">Nº Factura</span>
+                <input type="text" class="form-control" placeholder="Nº Factura" aria-label="n-factura" aria-describedby="basic-addon2" id="nFactura">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3">$ Factura</span>
+                <input type="text" class="form-control" placeholder="$ Factura" aria-label="monto-factura" aria-describedby="basic-addon3" id="montoFactura">
+            </div>
+            <select class="form-select" aria-label="Seleccione tipo de IVA" onchange="mostrarSinIvaEnTiempoReal(this.value)" id="tipoIva">
+                <option selected>Seleccione tipo de IVA</option>
+                <option value="1">10.5%</option>
+                <option value="2">21%</option>
+                <option value="3">27%</option>
+            </select>
+            <div class="input-group mb-3" id="mostrarIva" style="display: none;">
+                <span class="input-group-text" id="basic-addon5"> Neto sin IVA:</span>
+                <input type="text" class="form-control" placeholder="" aria-label="neto-sin-iva" aria-describedby="basic-addon5" id="netoSinIva" disabled>
+            </div>
+            <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" value="" id="contieneIibb">
+                <label class="form-check-label" for="contieneIibb">
+                  Contiene retencion de Ingresos Brutos
+                </label>
+            </div>
+            <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" value="" id="contieneGcias">
+                <label class="form-check-label" for="contieneGcias">
+                  Contiene retención de Ganancias
+                </label>
+            </div>
+            <div class="col-12 my-4">
+                <input type="button" class="btn btn-primary" onclick="tomarDatos();" value="Calcular Pago">     
+            </div>
+        </form>
+
+        <div class="container-sm" id="contenidoResultado" style="display: none;">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon7">Total Factura:</span>
+                <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon7" id="totalFactura" disabled>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon8">IIBB:</span>
+                <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon8" id="iibbFactura" disabled>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon9">Ganancias:</span>
+                <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon9" id="gciasFactura" disabled>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon10">Valores:</span>
+                <input type="text" class="form-control" style="font-weight: bolder;" placeholder="" aria-label="" aria-describedby="basic-addon10" id="valoresFactura" disabled>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
